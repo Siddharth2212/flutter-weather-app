@@ -7,6 +7,8 @@ class CityScreen extends StatefulWidget {
 }
 
 class _CityScreenState extends State<CityScreen> {
+  String cityname;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +35,20 @@ class _CityScreenState extends State<CityScreen> {
               ),
               Container(
                 padding: EdgeInsets.all(20.0),
-                child: null,
+                child: TextField(
+                  onChanged: (value) {
+                    cityname = value;
+                  },
+                  style: TextStyle(
+                    color: Colors.black
+                  ),
+                  decoration: kTextFieldInputDecoration
+                ),
               ),
               FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context, cityname);
+                },
                 child: Text(
                   'Get Weather',
                   style: kButtonTextStyle,
